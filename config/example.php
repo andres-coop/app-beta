@@ -15,7 +15,7 @@
         echo " ganaste";
     }else{
         echo "<br>";
-        echo " perdiste puta";
+        echo " perdiste";
     }
 */
 

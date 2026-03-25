@@ -1,7 +1,9 @@
-create table users (id SERIAL PRIMARY KEY UNIQUE NOT NULL, 
+create table users (
+id SERIAL PRIMARY KEY UNIQUE NOT NULL, 
 firstname varchar(50) NOT NULL, 
 lastname varchar(50) NOT NULL, 
-email varchar(100) NOT NULL UNIQUE, password text NOT NULL, 
+email varchar(100) NOT NULL UNIQUE, 
+password text NOT NULL, 
 mobile_phone varchar(20) NOT NULL UNIQUE, 
 address varchar(100) NULL, 
 gender integer NULL, 

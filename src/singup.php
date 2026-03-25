@@ -9,8 +9,13 @@
     $m_phone = $_POST['mphone'];
     $p_sswd  = $_POST['passwd'];
 
+
+    //enciptar
+    $enc_pass = md5($p_sswd);
+
     //query to insert into SQL
-    $sql = "INSERT INTO users (firstname, lastname, email, mobil_phone, password) VALUES ('$f_name', '$l_name', '$email', '$m_phone', '$p_sswd')";
+    $sql = "INSERT INTO users (firstname, lastname, email,mobile_phone, password ) 
+    VALUES ('$f_name', '$l_name', '$email', '$m_phone', '$enc_pass')";
     
     //execute query
     pg_query($sql);

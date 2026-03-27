@@ -38,7 +38,17 @@
         exit();
     }
 
-    
+    if ($res_local) {
+    $res_supa = pg_query($supa_conn, $sql);
+
+    if ($res_supa) {
+        echo "Guardado en ambos lados.";
+    } else {
+        echo "Error: Se guardó en local pero no en la nube.";
+    }   
+        } else {
+        echo "Error: No se pudo guardar ni en local.";
+    }
     
     $res_local = pg_query($local_conn, $sql);
 

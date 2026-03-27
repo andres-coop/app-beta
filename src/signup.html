@@ -7,27 +7,28 @@
         <link rel="icon" type="image/png" href="icons/home.png">
     </head>
     <body bgcolor="#5C7373">
-       
+
+       <center> 
         <form name = "frm-user" action = "singup.php" method= "post"> 
             <table border="1">
             
-                <label for="fname">Firstname</label><br>
-                    <input type="text" name = "fname" required><br>
+                <label for="fname">First name</label><br>
+                    <input type="text" pattern="[A-Za-z\s]+" name="fname" required ><br>
 
-                <label for="lname">Lastname</label><br>
-                    <input type="text" name = "lname" required><br>
+                <label for="lname">Last name</label><br>
+                    <input type="text" pattern="[A-Za-z\s]+" name="lname" required><br>
                 
                 <label for="email">Email</label><br>
-                    <input type="email" name = "email" required><br>
+                    <input type="email" name="email" required><br>
 
                 <label for="pswd">Password</label><br>
-                    <input type="password" name = "passwd" required><br>
+                    <input type="password" name="passwd" required><br>
 
                 <label for="pswd2">Password again</label><br>
                     <input type="password"><br>
                 
                 <label for="mphone">Mobile phone</label><br>
-                    <input type="number" min=0 name = "mphone" required><br>
+                    <input type="number" name="mphone" required><br>
                 
                 
                     <button>Register</button>    
@@ -37,7 +38,7 @@
     
             
         </form>
-
+        </center>
 
         
     </body>

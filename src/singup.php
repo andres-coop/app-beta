@@ -26,9 +26,21 @@
         exit();
     }
     
+    
+
+
+    //number RAMA 2
+    $check_phone = "SELECT mobile_phone FROM users WHERE mobile_phone = '$mphone'";
+    $res_phone = pg_query($local_conn, $check_phone);
+
+    if (pg_num_rows($res_phone) > 0) {
+        echo "Error: El número de celular '$mphone' ya está registrado."; 
+        exit();
+    }
+
+    
+    
     $res_local = pg_query($local_conn, $sql);
-    
-    
 
 
 

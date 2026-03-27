@@ -11,7 +11,9 @@
 
 
     //enciptar
-    $enc_pass = md5($p_sswd);
+    //$enc_pass = md5($p_sswd);
+    $enc_pass = password_hash($p_sswd, PASSWORD_BCRYPT);
+    
 
     //query to insert into SQL
     $sql = "INSERT INTO users (firstname, lastname, email,mobile_phone, password ) 
@@ -26,17 +28,17 @@
         exit();
     }
     
-    
-
 
     //number RAMA 2
-    $check_phone = "SELECT mobile_phone FROM users WHERE mobile_phone = '$mphone'";
+    $check_phone = "SELECT mobile_phone FROM users WHERE mobile_phone = '$m_phone'";
     $res_phone = pg_query($local_conn, $check_phone);
 
     if (pg_num_rows($res_phone) > 0) {
-        echo "Error: El número de celular '$mphone' ya está registrado."; 
+        echo "Error: El número de celular '$m_phone' ya está registrado."; 
         exit();
     }
+    
+    $res_local = pg_query($local_conn, $sql);
 
     if ($res_local) {
     $res_supa = pg_query($supa_conn, $sql);
@@ -50,8 +52,9 @@
         echo "Error: No se pudo guardar ni en local.";
     }
     
-    $res_local = pg_query($local_conn, $sql);
+    //
 
+    
 
 
 

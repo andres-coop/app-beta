@@ -36,6 +36,7 @@ $supa_data_connection = "
 
 $local_conn = pg_connect($local_data_connection);
 
+/*
 if(!$local_conn){
     echo "Error: Unable to connect to database";
     exit();
@@ -52,6 +53,6 @@ if(!$supa_conn){
 }else{
     echo "Supa Success connection !!!";
 }
-
+*/
 
 ?>

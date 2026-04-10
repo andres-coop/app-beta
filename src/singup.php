@@ -33,26 +33,28 @@
     $check_phone = "SELECT mobile_phone FROM users WHERE mobile_phone = '$m_phone'";
     $res_phone = pg_query($local_conn, $check_phone);
 
-    if (pg_num_rows($res_phone) > 0) {
-        echo "Error: El número de celular '$m_phone' ya está registrado."; 
+    if (pg_num_rows($res_phone) > 0) {  
+        echo "Error: El número de celular '$m_phone' ya está registrado en la base de datos.\n"; 
         exit();
     }
     
     $res_local = pg_query($local_conn, $sql);
 
+
+    //Rama 3
     if ($res_local) {
     $res_supa = pg_query($supa_conn, $sql);
 
     if ($res_supa) {
-        echo "Guardado en ambos lados.";
+        echo "Guardado en ambos lados.\n";
     } else {
-        echo "Error: Se guardó en local pero no en la nube.";
+        echo "Error: Se guardó en local pero no en la nube...\n";
     }   
         } else {
-        echo "Error: No se pudo guardar ni en local.";
+        echo "Error: No se pudo guardar...\n";
     }
     
-    //
+    
 
     
 

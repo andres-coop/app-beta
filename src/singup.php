@@ -12,14 +12,14 @@
 
     //enciptar
     //$enc_pass = md5($p_sswd);
-    $enc_pass = password_hash($p_sswd, PASSWORD_BCRYPT);
+     $enc_pass = password_hash($p_sswd, PASSWORD_BCRYPT);
     
 
     //query to insert into SQL
     $sql = "INSERT INTO users (firstname, lastname, email,mobile_phone, password ) 
     VALUES ('$f_name', '$l_name', '$email', '$m_phone', '$enc_pass')";
 
-    //email RAMA 1 
+
     $check_email = "SELECT email FROM users WHERE email = '$email'";
     $res_email = pg_query($local_conn, $check_email);
 
@@ -29,7 +29,7 @@
     }
     
 
-    //number RAMA 2
+   
     $check_phone = "SELECT mobile_phone FROM users WHERE mobile_phone = '$m_phone'";
     $res_phone = pg_query($local_conn, $check_phone);
 
@@ -41,12 +41,15 @@
     $res_local = pg_query($local_conn, $sql);
 
 
-    //Rama 3
+  
     if ($res_local) {
     $res_supa = pg_query($supa_conn, $sql);
-
+    
+  
     if ($res_supa) {
-        echo "Guardado en ambos lados.\n";
+        //echo "Usuario registrado.\n";
+        echo "<script>alert('Usuario registrado.')</script>";
+        header('refresh:0;url=signin.html');
     } else {
         echo "Error: Se guardó en local pero no en la nube...\n";
     }   

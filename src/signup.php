@@ -11,8 +11,8 @@
 
 
     //enciptar
-    //$enc_pass = md5($p_sswd);
-     $enc_pass = password_hash($p_sswd, PASSWORD_BCRYPT);
+    $enc_pass = md5($p_sswd);
+    //$enc_pass = password_hash($p_sswd, PASSWORD_BCRYPT);
     
 
     //query to insert into SQL
@@ -40,12 +40,9 @@
     
     $res_local = pg_query($local_conn, $sql);
 
-
-  
     if ($res_local) {
     $res_supa = pg_query($supa_conn, $sql);
-    
-  
+ 
     if ($res_supa) {
         //echo "Usuario registrado.\n";
         echo "<script>alert('Usuario registrado.')</script>";
